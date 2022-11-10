@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.moveDir = this.moveDir + new Vector2(curve, curve);
+        this.moveDir = Rotate(moveDir, curve);
         moveSpeed = moveSpeed + acceleration;
         transform.Translate(moveDir * moveSpeed * Time.deltaTime);
     }
@@ -58,5 +58,17 @@ public class Bullet : MonoBehaviour
         this.ttl = ttl;
         this.acceleration = acceleration;
         this.curve = curve;
+    }
+
+    public static Vector2 Rotate(Vector2 v, float degrees)
+    {
+        float sin = Mathf.Sin(degrees * Mathf.Deg2Rad);
+        float cos = Mathf.Cos(degrees * Mathf.Deg2Rad);
+
+        float tx = v.x;
+        float ty = v.y;
+        v.x = (cos * tx) - (sin * ty);
+        v.y = (sin * tx) + (cos * ty);
+        return v;
     }
 }

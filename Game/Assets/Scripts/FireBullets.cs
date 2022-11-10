@@ -21,7 +21,7 @@ public class FireBullets: MonoBehaviour
     [SerializeField] private float maxSpinRate = 10f;
 
     //Fire Rate Variables
-    [SerializeField] private float timeInterval = 2f;
+    [SerializeField] private float fireRate = 2f;
 
     //Offset Variables
     [SerializeField] private float xOffSet = 0;
@@ -33,40 +33,43 @@ public class FireBullets: MonoBehaviour
     [SerializeField] private float bulletAcceleration = 0f;
     [SerializeField] private float bulletCurve;
 
+    private float shoot = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Fire", 0f, timeInterval);
     }
 
-    private void Fire()
+    void Update()
     {
         //float angleStep = (endAngle - startAngle) / bulletAmount;
 
         float arrayAngle = (spreadWithinArray / bulletAmount); //Calculates spread between arrays
         float bulletAngle = (spreadBetweenArray / bulletAmount); //Calculates the spread between the bullets in the array
 
-        for (int i = 0; i < patternArrays; i++)
-        { 
-            for (int j = 0; j < bulletAmount; j++)
+        if(shoot == 0) {//FireRate
+            for (int i = 0; i < patternArrays; i++)
             {
-                float angle = defaultAngle + (bulletAngle * i) + (arrayAngle * j) + startAngle;
-                float bulDirX = xOffSet + transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
-                float bulDirY = yOffSet + transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
+                for (int j = 0; j < bulletAmount; j++)
+                {
+                    float angle = defaultAngle + (bulletAngle * i) + (arrayAngle * j) + startAngle;
+                    float bulDirX = xOffSet + transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
+                    float bulDirY = yOffSet + transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
 
-                Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f);
-                Vector2 bulDir = (bulMoveVector - transform.position).normalized;
+                    Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0f);
+                    Vector2 bulDir = (bulMoveVector - transform.position).normalized;
 
-                GameObject bul = BulletPool.bulletPoolInstance.GetBullet();
-                bul.transform.position = transform.position;
-                bul.transform.rotation = transform.rotation;
-                bul.GetComponent<Bullet>().setState(bulDir, bulletSpeed, bulletAcceleration, bulletCurve, ttl);
-                bul.SetActive(true);       
+                    GameObject bul = BulletPool.bulletPoolInstance.GetBullet();
+                    bul.transform.position = transform.position;
+                    bul.transform.rotation = transform.rotation;
+                    bul.GetComponent<Bullet>().setState(bulDir, bulletSpeed, bulletAcceleration, bulletCurve, ttl);
+                    bul.SetActive(true);
+                }
             }
         }
 
         //If Default Angle > 360 , set it to 0
-        if (defaultAngle > 360 || defaultAngle < -360)
+        if (defaultAngle > 360)
         {
             defaultAngle = 0;
         }
@@ -82,11 +85,11 @@ public class FireBullets: MonoBehaviour
                 spinModifier = -spinModifier;
             }
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        shoot += 1; //fire rate control
+        if (shoot >= fireRate)
+        { //once shoot reaches  fire rate
+            shoot = 0; //set it to 0 to shoot again
+        }
     }
 }
