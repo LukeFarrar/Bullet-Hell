@@ -4,38 +4,34 @@ using UnityEngine;
 
 public class FireBullets: MonoBehaviour
 {
-    [SerializeField]
-    private int patternArrays = 1;
+    //Patterns
+    [SerializeField] private int patternArrays = 1;
+    [SerializeField] private int bulletAmount = 10;
 
-    [SerializeField]
-    private int bulletAmount = 10;
+    //Angle Variables
+    [SerializeField] private float startAngle = 90f;
+    [SerializeField] private float defaultAngle = 0f;
+    [SerializeField] private float spreadBetweenArray; //Spread between Arrays
+    [SerializeField] private float spreadWithinArray; //Spread between last and first bullet
 
-    [SerializeField]
-    private float startAngle = 90f, defaultAngle = 0f;
+    //Spinning Variables
+    [SerializeField] private float spinRate = 0f;
+    [SerializeField] private float spinModifier = 0f;
+    [SerializeField] private bool invertSpin = true;
+    [SerializeField] private float maxSpinRate = 10f;
 
-    [SerializeField]
-    private float bulletSpeed = 5f;
+    //Fire Rate Variables
+    [SerializeField] private float timeInterval = 2f;
 
-    [SerializeField]
-    private float spreadBetweenArray; //Spread between Arrays
+    //Offset Variables
+    [SerializeField] private float xOffSet = 0;
+    [SerializeField] private float yOffSet = 0;
 
-    [SerializeField]
-    private float spreadWithinArray; //Spread between last and first bullet
-
-    [SerializeField]
-    private float timeInterval = 2f;
-
-    [SerializeField]
-    private float xOffSet = 0, yOffSet = 0;
-
-    [SerializeField]
-    private float ttl = 3f;
-
-    [SerializeField]
-    private float bulletAcceleration = 0f;
-
-    [SerializeField]
-    private float bulletCurve;
+    //Bullet Variables
+    [SerializeField] private float bulletSpeed = 5f;
+    [SerializeField] private float ttl = 3f;
+    [SerializeField] private float bulletAcceleration = 0f;
+    [SerializeField] private float bulletCurve;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +62,24 @@ public class FireBullets: MonoBehaviour
                 bul.transform.rotation = transform.rotation;
                 bul.GetComponent<Bullet>().setState(bulDir, bulletSpeed, bulletAcceleration, bulletCurve, ttl);
                 bul.SetActive(true);       
+            }
+        }
+
+        //If Default Angle > 360 , set it to 0
+        if (defaultAngle > 360 || defaultAngle < -360)
+        {
+            defaultAngle = 0;
+        }
+        defaultAngle += spinRate; //Make the pattern spin
+        spinRate += spinModifier; //Apply the spin modifier
+
+        //Invert the spin if set to 1
+        if (invertSpin == true)
+        {
+            if (spinRate < -maxSpinRate || spinRate > maxSpinRate)
+            {
+
+                spinModifier = -spinModifier;
             }
         }
     }
