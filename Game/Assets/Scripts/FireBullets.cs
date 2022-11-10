@@ -31,6 +31,9 @@ public class FireBullets: MonoBehaviour
     [SerializeField]
     private float ttl = 3f;
 
+    [SerializeField]
+    private float bulletAcceleration = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +61,7 @@ public class FireBullets: MonoBehaviour
                 GameObject bul = BulletPool.bulletPoolInstance.GetBullet();
                 bul.transform.position = transform.position;
                 bul.transform.rotation = transform.rotation;
-                bul.GetComponent<Bullet>().setState(bulDir, bulletSpeed, ttl);
+                bul.GetComponent<Bullet>().setState(bulDir, bulletSpeed, bulletAcceleration, ttl);
                 bul.SetActive(true);       
             }
         }
