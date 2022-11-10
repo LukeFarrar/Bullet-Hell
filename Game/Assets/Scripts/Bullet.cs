@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     private float moveSpeed = 0f;
     private float ttl = 0f;
     private float acceleration = 0f;
+    private float curve = 0f;
     private void OnEnable()
     {
         Invoke("Destroy", ttl);
@@ -20,6 +21,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.moveDir = this.moveDir + new Vector2(curve, curve);
         moveSpeed = moveSpeed + acceleration;
         transform.Translate(moveDir * moveSpeed * Time.deltaTime);
     }
@@ -49,11 +51,12 @@ public class Bullet : MonoBehaviour
         CancelInvoke();
     }
 
-    public void setState(Vector2 dir, float speed, float acceleration, float ttl)
+    public void setState(Vector2 dir, float speed, float acceleration, float curve, float ttl)
     {
         moveDir = dir;
         moveSpeed = speed;
         this.ttl = ttl;
         this.acceleration = acceleration;
+        this.curve = curve;
     }
 }

@@ -34,6 +34,9 @@ public class FireBullets: MonoBehaviour
     [SerializeField]
     private float bulletAcceleration = 0f;
 
+    [SerializeField]
+    private float bulletCurve;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +52,7 @@ public class FireBullets: MonoBehaviour
 
         for (int i = 0; i < patternArrays; i++)
         { 
-            for (int j = 0; j < bulletAmount + 1; j++)
+            for (int j = 0; j < bulletAmount; j++)
             {
                 float angle = defaultAngle + (bulletAngle * i) + (arrayAngle * j) + startAngle;
                 float bulDirX = xOffSet + transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
@@ -61,7 +64,7 @@ public class FireBullets: MonoBehaviour
                 GameObject bul = BulletPool.bulletPoolInstance.GetBullet();
                 bul.transform.position = transform.position;
                 bul.transform.rotation = transform.rotation;
-                bul.GetComponent<Bullet>().setState(bulDir, bulletSpeed, bulletAcceleration, ttl);
+                bul.GetComponent<Bullet>().setState(bulDir, bulletSpeed, bulletAcceleration, bulletCurve, ttl);
                 bul.SetActive(true);       
             }
         }
