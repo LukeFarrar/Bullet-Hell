@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68cc4156ffad0b49ab5234b9cd99a0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledBullet: {fileID: 7517437520580880477, guid: 557b6f768b25653409c1e6fcaa003b6c, type: 3}
+  pooledBullet: {fileID: 7517437520580880477, guid: d979d692130ba5040be212222c2789c9, type: 3}
 --- !u!4 &66664448
 Transform:
   m_ObjectHideFlags: 0
@@ -310,16 +310,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3268509122628359957, guid: 9cdb3187170fac84daa5f1b74cf6287f, type: 3}
       propertyPath: playerSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3268509122628359957, guid: 9cdb3187170fac84daa5f1b74cf6287f, type: 3}
       propertyPath: rotationSpeed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8383529960148814365, guid: 9cdb3187170fac84daa5f1b74cf6287f, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 25934169}
+    - target: {fileID: 8383529960148814365, guid: 9cdb3187170fac84daa5f1b74cf6287f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8690013307309481670, guid: 9cdb3187170fac84daa5f1b74cf6287f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -455,31 +459,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: fireRate
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: spinRate
-      value: 1.5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
+      propertyPath: invertSpin
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: startAngle
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
+      propertyPath: bulletCurve
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: maxSpinRate
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: bulletAmount
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: spinModifier
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: timeInterval
@@ -495,15 +507,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: patternArrays
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: spreadWithinArray
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: spreadBetweenArray
-      value: 350
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4533595493735481248, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: m_Name
@@ -511,7 +523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4533595493735481261, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4533595493735481262, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: m_RootOrder
