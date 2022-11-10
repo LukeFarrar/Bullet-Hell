@@ -5,15 +5,15 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Vector2 moveDir;
-    private float moveSpeed;
+    private float moveSpeed = 0f;
+    private float ttl = 0f;
     private void OnEnable()
     {
-        Invoke("Destroy", 3f);
+        Invoke("Destroy", ttl);
     }
     // Start is called before the first frame update
     void Start()
     {
-        moveSpeed = 5f;
     }
 
     // Update is called once per frame
@@ -27,6 +27,16 @@ public class Bullet : MonoBehaviour
         moveDir = dir;
     }
 
+    public void setSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
+
+    public void setTTL(float ttl)
+    {
+        this.ttl = ttl;
+    }
+
     private void Destroy()
     {
         gameObject.SetActive(false);
@@ -35,5 +45,12 @@ public class Bullet : MonoBehaviour
     private void OnDisable()
     {
         CancelInvoke();
+    }
+
+    public void setState(Vector2 dir, float speed, float ttl)
+    {
+        moveDir = dir;
+        moveSpeed = speed;
+        this.ttl = ttl;
     }
 }
