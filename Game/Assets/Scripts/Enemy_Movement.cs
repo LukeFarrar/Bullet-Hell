@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Enemy_Movement : MonoBehaviour
 {
-    private float movespeed;
-    private bool moveRight;
+    private float movespeed = 2f;
+    private bool moveRight = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        movespeed = 2f;
-        moveRight = true;
     }
 
     // Update is called once per frame

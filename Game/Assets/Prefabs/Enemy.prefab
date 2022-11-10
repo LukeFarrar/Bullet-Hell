@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4533595493735481262}
-  - component: {fileID: 4533595493735481263}
   - component: {fileID: 4533595493735481261}
+  - component: {fileID: 4533595493735481263}
   - component: {fileID: 3341134828712203128}
   m_Layer: 0
   m_Name: Enemy
@@ -28,12 +28,24 @@ Transform:
   m_GameObject: {fileID: 4533595493735481248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.03, y: 0, z: 0}
-  m_LocalScale: {x: 0.5096, y: 1, z: 1}
+  m_LocalScale: {x: 0.24205999, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4533595493735481261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533595493735481248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e850a1ea4be6874aa6c378a0cd8bb87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &4533595493735481263
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86,18 +98,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4533595493735481261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4533595493735481248}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e850a1ea4be6874aa6c378a0cd8bb87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3341134828712203128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +110,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f663168b19f6343a8910b3e3dbc1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patternArrays: 1
   bulletAmount: 10
   startAngle: 90
-  endAngle: 120
-  timeInterval: 2
+  defaultAngle: 0
+  spreadBetweenArray: 0
+  spreadWithinArray: 0
+  spinRate: 0
+  spinModifier: 0
+  invertSpin: 1
+  maxSpinRate: 10
+  fireRate: 2
+  xOffSet: 0
+  yOffSet: 0
+  bulletSpeed: 5
+  ttl: 3
+  bulletAcceleration: 0
+  bulletCurve: 0
