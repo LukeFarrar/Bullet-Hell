@@ -467,15 +467,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: invertSpin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
-      propertyPath: startAngle
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
-      propertyPath: bulletCurve
+      propertyPath: startAngle
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
+      propertyPath: bulletCurve
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: bulletSpeed
@@ -483,15 +483,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: maxSpinRate
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: bulletAmount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: spinModifier
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: timeInterval
@@ -507,15 +507,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: patternArrays
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: spreadWithinArray
-      value: 0
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
+      propertyPath: bulletAcceleration
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 3341134828712203128, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: spreadBetweenArray
-      value: 0
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 4533595493735481248, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: m_Name
@@ -523,7 +527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4533595493735481261, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4533595493735481262, guid: f621ec022a25c62448877971e4537082, type: 3}
       propertyPath: m_RootOrder
