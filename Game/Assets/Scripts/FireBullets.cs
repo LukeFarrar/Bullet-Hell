@@ -9,7 +9,7 @@ public class FireBullets: MonoBehaviour
     [SerializeField] private int bulletAmount = 10;
 
     //Angle Variables
-    [SerializeField] private float startAngle = 90f;
+    [SerializeField] private float startAngle = 180f;
     [SerializeField] private float defaultAngle = 0f;
     [SerializeField] private float spreadBetweenArray; //Spread between Arrays
     [SerializeField] private float spreadWithinArray; //Spread between last and first bullet
@@ -32,6 +32,8 @@ public class FireBullets: MonoBehaviour
     [SerializeField] private float ttl = 3f;
     [SerializeField] private float bulletAcceleration = 0f;
     [SerializeField] private float bulletCurve;
+
+    [SerializeField] private Material mat;
 
     private float shoot = 0;
 
@@ -62,7 +64,7 @@ public class FireBullets: MonoBehaviour
                     GameObject bul = BulletPool.bulletPoolInstance.GetBullet();
                     bul.transform.position = transform.position;
                     bul.transform.rotation = transform.rotation;
-                    bul.GetComponent<Bullet>().setState(bulDir, bulletSpeed, bulletAcceleration, bulletCurve, ttl);
+                    bul.GetComponent<Bullet>().setState(bulDir, bulletSpeed, bulletAcceleration, bulletCurve, ttl, mat);
                     bul.SetActive(true);
                 }
             }

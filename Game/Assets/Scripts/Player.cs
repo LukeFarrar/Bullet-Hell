@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float playerSpeed;
+    [SerializeField]private float playerSpeed;
     private Rigidbody2D rb;
     private Vector2 playerDirection;
     [SerializeField]
@@ -34,6 +34,6 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(playerDirection.x * playerSpeed, playerDirection.y * playerSpeed);
+        rb.velocity = new Vector2(playerDirection.x * playerSpeed , playerDirection.y * playerSpeed);
     }
 }
