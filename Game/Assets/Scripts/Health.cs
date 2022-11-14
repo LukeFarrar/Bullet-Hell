@@ -16,10 +16,6 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        if( Input.GetKeyDown( KeyCode.Space ) )
-        {
-            DamagePlayer(10);
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
