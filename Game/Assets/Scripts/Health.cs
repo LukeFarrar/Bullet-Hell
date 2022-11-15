@@ -33,6 +33,8 @@ public class Health : MonoBehaviour
                 }
 
             }
+
+            GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().Stop();
         }
     }
 

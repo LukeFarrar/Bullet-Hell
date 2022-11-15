@@ -10,6 +10,10 @@ public class Timer : MonoBehaviour
     private TextMeshProUGUI myText;
     [SerializeField]
     private Slider Health;
+
+    [SerializeField]
+    private Slider EnemyHealth;
+
     private float seconds = 0;
     private float minutes = 0;
     private float ticker = 0;
@@ -22,7 +26,11 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Health.value > 0 )
+        if(Health.value <= 0 || EnemyHealth.value <= 0)
+        {
+            
+        }
+        else
         {
             ticker++;
             if (ticker % 60 == 0)
@@ -34,7 +42,7 @@ public class Timer : MonoBehaviour
                     seconds = 0;
                 }
             }
-            myText.text = minutes + ":" + seconds;
-        }   
+        }
+        myText.text = minutes + ":" + seconds;
     }
 }
