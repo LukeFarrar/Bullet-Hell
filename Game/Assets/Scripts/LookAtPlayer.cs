@@ -5,6 +5,7 @@ using UnityEngine;
 public class LookAtPlayer : MonoBehaviour
 {
     public Transform target;
+    [SerializeField] private float offset = 90f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,6 @@ public class LookAtPlayer : MonoBehaviour
     private void RotateTowardsTarget()
     {
         transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);
-        var offset = 90f;
         Vector2 direction = target.position - transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

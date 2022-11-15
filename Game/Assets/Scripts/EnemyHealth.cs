@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
     public int curHealth = 0;
-    public int maxHealth = 100;
+    public int maxHealth = 500;
 
-    public HealthBar healthBar;
+    public EnemyHealthBar healthBar;
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
             {
                 try
                 {
-                    enemy.GetComponent<FireBullets>().stopFiring(true);          
+                    enemy.GetComponent<FireBullets>().stopFiring(true);
                 }
                 catch
                 {
@@ -37,17 +37,17 @@ public class Health : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "FriendlyBullet")
         {
-            DamagePlayer(10);
+            DamagePlayer(5);
         }
-        
+
     }
 
-    public void DamagePlayer( int damage )
+    public void DamagePlayer(int damage)
     {
         curHealth -= damage;
 
-        healthBar.SetHealth( curHealth );
+        healthBar.SetHealth(curHealth);
     }
 }

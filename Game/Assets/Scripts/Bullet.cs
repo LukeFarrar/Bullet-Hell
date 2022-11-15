@@ -82,5 +82,9 @@ public class Bullet : MonoBehaviour
         {
             Destroy();
         }
+        if(collision.gameObject.tag == "Enemy" && this.gameObject.tag == "FriendlyBullet")
+        {
+            Destroy();
+        }
     }
 }
