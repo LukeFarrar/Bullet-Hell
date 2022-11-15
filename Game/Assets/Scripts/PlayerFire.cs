@@ -37,7 +37,6 @@ public class PlayerFire : MonoBehaviour
 
     private float shoot = 0;
 
-    private bool fire = true;
     private bool stopFire = false;
 
     // Start is called before the first frame update
@@ -49,14 +48,9 @@ public class PlayerFire : MonoBehaviour
     {
         if (!stopFire)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && fire)
+            if (Input.GetKey(KeyCode.Space))
             {
-                fire = false;
                 Fire();
-            }
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                fire = true;
             }
         }    
     }

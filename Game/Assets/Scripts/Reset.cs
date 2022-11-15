@@ -17,7 +17,8 @@ public class Reset : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R))
         {
-            Application.LoadLevel(0);
+            //Application.LoadLevel(0);
+            SceneManager.LoadScene(0);
         }
         
     }
