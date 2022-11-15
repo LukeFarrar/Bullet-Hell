@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     public int curHealth = 0;
     public int maxHealth = 100;
+    public int damage = 1;
 
     public HealthBar healthBar;
 
@@ -39,7 +40,7 @@ public class Health : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            DamagePlayer(10);
+            DamagePlayer(damage);
         }
         
     }

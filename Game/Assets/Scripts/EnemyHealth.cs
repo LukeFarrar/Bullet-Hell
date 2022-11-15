@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public int curHealth = 0;
     public int maxHealth = 500;
+    public int damage = 1;
 
     public EnemyHealthBar healthBar;
 
@@ -32,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
                 }
 
             }
+            GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().Stop();
         }
     }
 
@@ -39,7 +41,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (collision.gameObject.tag == "FriendlyBullet")
         {
-            DamagePlayer(5);
+            DamagePlayer(damage);
         }
 
     }
