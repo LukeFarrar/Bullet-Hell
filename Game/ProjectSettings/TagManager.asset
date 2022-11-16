@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Fire
   - Music
+  - Bound
   layers:
   - Default
   - TransparentFX
