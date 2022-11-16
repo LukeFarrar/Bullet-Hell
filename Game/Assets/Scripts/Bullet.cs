@@ -86,5 +86,9 @@ public class Bullet : MonoBehaviour
         {
             Destroy();
         }
+        if(collision.gameObject.tag == "Bound")
+        {
+            Destroy();
+        }
     }
 }

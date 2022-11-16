@@ -17,6 +17,20 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
+        if (curHealth < (maxHealth - maxHealth / 8))
+            Attacks.Phase2 = true;
+        if (curHealth < (maxHealth - 2*(maxHealth / 8)))
+            Attacks.Phase3 = true;
+        if (curHealth < (maxHealth - 3 * (maxHealth / 8)))
+            Attacks.Phase4 = true;
+        if (curHealth < (maxHealth - 4 * (maxHealth / 8)))
+            Attacks.Phase5 = true;
+        if (curHealth < (maxHealth - 5 * (maxHealth / 8)))
+            Attacks.Phase6 = true;
+        if (curHealth < (maxHealth - 6 * (maxHealth / 8)))
+            Attacks.Phase7 = true;
+        if (curHealth < (maxHealth - 7 * (maxHealth / 8)))
+            Attacks.Phase8 = true;
         if (curHealth <= 0)
         {
             var enemies = GameObject.FindGameObjectsWithTag("Fire");

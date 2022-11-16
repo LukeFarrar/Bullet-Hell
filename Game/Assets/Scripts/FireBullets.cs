@@ -45,7 +45,12 @@ public class FireBullets: MonoBehaviour
 
     void Update()
     {
-        if(!stopFire)
+        //Fire();
+    }
+
+    public void Fire()
+    {
+        if (!stopFire)
         {
             //float angleStep = (endAngle - startAngle) / bulletAmount;
 
@@ -97,7 +102,7 @@ public class FireBullets: MonoBehaviour
             { //once shoot reaches  fire rate
                 shoot = 0; //set it to 0 to shoot again
             }
-        }  
+        }
     }
 
     public void stopFiring(bool toStop)

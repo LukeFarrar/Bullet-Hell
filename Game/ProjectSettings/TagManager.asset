@@ -8,6 +8,7 @@ TagManager:
   - FriendlyBullet
   - Enemy
   - Fire
+  - Music
   layers:
   - Default
   - TransparentFX
