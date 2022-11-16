@@ -35,12 +35,11 @@ public class Attacks : MonoBehaviour
         {
             shooters[0].Fire();
         }
-        /*
         if (freqBands[2] > 3f && Phase3)
         {
             shooters[2].Fire();
         }
-        if (freqBands[3] > 1f && Phase4)
+        if (freqBands[3] > 3f && Phase4)
         {
             shooters[3].Fire();
         }
@@ -53,7 +52,7 @@ public class Attacks : MonoBehaviour
             shooters[5].Fire();
         }
         //Hi-hat
-        if (freqBands[6] > 1.5f && Phase7)
+        if (freqBands[6] > 3f && Phase7)
         {
             shooters[6].Fire();
         }
@@ -61,6 +60,6 @@ public class Attacks : MonoBehaviour
         {
             shooters[7].Fire();
         }
-        */
+        
     }
 }

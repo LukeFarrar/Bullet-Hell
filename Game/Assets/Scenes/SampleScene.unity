@@ -4730,11 +4730,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f663168b19f6343a8910b3e3dbc1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternArrays: 5
+  patternArrays: 20
   bulletAmount: 1
   startAngle: 135
   defaultAngle: 0
-  spreadBetweenArray: 20
+  spreadBetweenArray: 18
   spreadWithinArray: 0
   spinRate: 0
   spinModifier: 0
@@ -4743,9 +4743,9 @@ MonoBehaviour:
   fireRate: 50
   xOffSet: 0
   yOffSet: 0
-  bulletSpeed: 2
-  ttl: 5
-  bulletAcceleration: 0
+  bulletSpeed: 5
+  ttl: 20
+  bulletAcceleration: -0.05
   bulletCurve: 0
   mat: {fileID: 2100000, guid: 34acf6ebf84386e44b7f4f97e3968a9b, type: 2}
 --- !u!114 &1271401448
@@ -6743,17 +6743,17 @@ MonoBehaviour:
   defaultAngle: 0
   spreadBetweenArray: 120
   spreadWithinArray: 0
-  spinRate: 0.4
-  spinModifier: 0
+  spinRate: 0
+  spinModifier: 0.5
   invertSpin: 1
-  maxSpinRate: 10
-  fireRate: 2
+  maxSpinRate: 200
+  fireRate: 10
   xOffSet: 0
   yOffSet: 0
   bulletSpeed: 5
-  ttl: 3
-  bulletAcceleration: 0.05
-  bulletCurve: 0
+  ttl: 10
+  bulletAcceleration: 0.3
+  bulletCurve: 1
   mat: {fileID: 2100000, guid: b76b839a7cc10a443817d8d1139cccff, type: 2}
 --- !u!114 &2042764581
 MonoBehaviour:
@@ -6767,23 +6767,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f663168b19f6343a8910b3e3dbc1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternArrays: 1
-  bulletAmount: 10
+  patternArrays: 3
+  bulletAmount: 3
   startAngle: 180
   defaultAngle: 0
-  spreadBetweenArray: 0
-  spreadWithinArray: 0
+  spreadBetweenArray: 20
+  spreadWithinArray: 120
   spinRate: 0
-  spinModifier: 0
+  spinModifier: 1.5
   invertSpin: 1
-  maxSpinRate: 10
-  fireRate: 2
+  maxSpinRate: 25
+  fireRate: 5
   xOffSet: 0
   yOffSet: 0
-  bulletSpeed: 5
+  bulletSpeed: 10
   ttl: 3
   bulletAcceleration: 0
-  bulletCurve: 0
+  bulletCurve: 0.8
   mat: {fileID: 2100000, guid: bca123954658df8449f21dca24558c75, type: 2}
 --- !u!114 &2042764582
 MonoBehaviour:
@@ -6810,7 +6810,7 @@ MonoBehaviour:
   fireRate: 10
   xOffSet: 0
   yOffSet: 0
-  bulletSpeed: 10
+  bulletSpeed: 15
   ttl: 5
   bulletAcceleration: 0
   bulletCurve: 1
@@ -6827,22 +6827,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f663168b19f6343a8910b3e3dbc1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternArrays: 3
+  patternArrays: 12
   bulletAmount: 1
   startAngle: 180
   defaultAngle: 0
-  spreadBetweenArray: 120
+  spreadBetweenArray: 30
   spreadWithinArray: 0
   spinRate: 0
-  spinModifier: 0.1
+  spinModifier: 1.5
   invertSpin: 1
-  maxSpinRate: 100
-  fireRate: 15
+  maxSpinRate: 250
+  fireRate: 30
   xOffSet: 0
   yOffSet: 0
-  bulletSpeed: 5
-  ttl: 3
-  bulletAcceleration: 0
+  bulletSpeed: 1
+  ttl: 15
+  bulletAcceleration: 0.005
   bulletCurve: 0.1
   mat: {fileID: 2100000, guid: 21e577c52b515564ca705cfbb1950046, type: 2}
 --- !u!114 &2042764584
@@ -6857,23 +6857,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f663168b19f6343a8910b3e3dbc1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternArrays: 2
+  patternArrays: 4
   bulletAmount: 1
   startAngle: 180
   defaultAngle: 0
-  spreadBetweenArray: 180
+  spreadBetweenArray: 90
   spreadWithinArray: 0
-  spinRate: 0.5
+  spinRate: 0
   spinModifier: 0
   invertSpin: 1
   maxSpinRate: 10
-  fireRate: 2
+  fireRate: 10
   xOffSet: 0
   yOffSet: 0
   bulletSpeed: 8
-  ttl: 5
-  bulletAcceleration: 0.01
-  bulletCurve: 0
+  ttl: 8
+  bulletAcceleration: 0.05
+  bulletCurve: 0.5
   mat: {fileID: 2100000, guid: e16d3eb9baec1c84897587b262ce34fd, type: 2}
 --- !u!114 &2043684366 stripped
 MonoBehaviour:
@@ -7162,7 +7162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7349401058207659150, guid: 9cdb3187170fac84daa5f1b74cf6287f, type: 3}
       propertyPath: fireRate
-      value: 25
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7349401058207659150, guid: 9cdb3187170fac84daa5f1b74cf6287f, type: 3}
       propertyPath: bulletSpeed
@@ -7172,13 +7172,17 @@ PrefabInstance:
       propertyPath: defaultAngle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7349401058207659150, guid: 9cdb3187170fac84daa5f1b74cf6287f, type: 3}
+      propertyPath: bulletAcceleration
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7379363482167121625, guid: 9cdb3187170fac84daa5f1b74cf6287f, type: 3}
       propertyPath: mat
       value: 
       objectReference: {fileID: 2100000, guid: f6af009bb5e36f048b44e855358a3d2d, type: 2}
     - target: {fileID: 7572624469512362148, guid: 9cdb3187170fac84daa5f1b74cf6287f, type: 3}
       propertyPath: damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7572624469512362148, guid: 9cdb3187170fac84daa5f1b74cf6287f, type: 3}
       propertyPath: healthBar
@@ -7214,7 +7218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8690013307309481670, guid: 9cdb3187170fac84daa5f1b74cf6287f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.92
+      value: -16.6
       objectReference: {fileID: 0}
     - target: {fileID: 8690013307309481670, guid: 9cdb3187170fac84daa5f1b74cf6287f, type: 3}
       propertyPath: m_LocalPosition.z
