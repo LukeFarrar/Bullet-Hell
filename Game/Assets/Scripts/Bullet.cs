@@ -24,7 +24,17 @@ public class Bullet : MonoBehaviour
     {
         this.moveDir = Rotate(moveDir, curve);
         moveSpeed = moveSpeed + acceleration;
-        transform.Translate(moveDir * moveSpeed * Time.deltaTime);
+        
+        if(this.gameObject.tag == "FriendlyBullet")
+        {
+            var target = GameObject.FindGameObjectWithTag("Enemy").transform;
+            var step = moveSpeed * Time.deltaTime; // calculate distance to move
+            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        }
+        else
+        {
+            transform.Translate(moveDir * moveSpeed * Time.deltaTime);
+        }
     }
 
     public void setMoveDirection(Vector2 dir)

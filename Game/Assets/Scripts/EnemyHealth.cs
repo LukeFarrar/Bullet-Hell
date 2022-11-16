@@ -1,36 +1,84 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
     public int curHealth = 0;
-    public int maxHealth = 500;
+    public int maxHealth = 100;
     public int damage = 1;
+    private int counter = 1;
 
     public EnemyHealthBar healthBar;
+    [SerializeField] private GameObject bar;
+    [SerializeField] private GameObject underBar;
 
     void Start()
     {
+        counter = 1;
         curHealth = maxHealth;
+        damage = 1;
+        bar.GetComponent<Image>().color = new Color(0.3f, 0.2f, 0.6f, 1f);
+        underBar.GetComponent<Image>().color = new Color(0f, 0f, 1f, 1f);
     }
 
     void Update()
     {
-        if (curHealth < (maxHealth - maxHealth / 8))
+        if(curHealth <= 1)
+        {
+            counter++;
+            if(counter < 8)
+            {
+                curHealth = maxHealth;
+                healthBar.SetHealth(curHealth);
+            }
+        }
+        if (counter == 2)
+        {
+            bar.GetComponent<Image>().color = new Color(0f, 0f, 1f, 1f);
+            underBar.SetActive(false);
+            underBar.GetComponent<Image>().color = new Color(0f, 1f, 0f, 1f);
+            underBar.SetActive(true);
             Attacks.Phase2 = true;
-        if (curHealth < (maxHealth - 2*(maxHealth / 8)))
+        }
+        if (counter == 3)
+        {
+            bar.GetComponent<Image>().color = new Color(0f, 1f, 0f, 1f);
+            underBar.GetComponent<Image>().color = new Color(1f, 1f, 0f, 1f);
             Attacks.Phase3 = true;
-        if (curHealth < (maxHealth - 3 * (maxHealth / 8)))
+        }
+        if (counter == 4)
+        {
+            bar.GetComponent<Image>().color = new Color(1f, 1f, 0f, 1f);
+            underBar.GetComponent<Image>().color = new Color(0f, 1f, 1f, 1f);
             Attacks.Phase4 = true;
-        if (curHealth < (maxHealth - 4 * (maxHealth / 8)))
+        }
+        if (counter == 5)
+        {
+            bar.GetComponent<Image>().color = new Color(0f, 1f, 1f, 1f);
+            underBar.GetComponent<Image>().color = new Color(1f, 0f, 1f, 1f);
             Attacks.Phase5 = true;
-        if (curHealth < (maxHealth - 5 * (maxHealth / 8)))
+        }
+        if (counter == 6)
+        {
+            bar.GetComponent<Image>().color = new Color(1f, 0f, 1f, 1f);
+            underBar.GetComponent<Image>().color = new Color(0.3f, 1f, 0.5f, 1f);
             Attacks.Phase6 = true;
-        if (curHealth < (maxHealth - 6 * (maxHealth / 8)))
+        }
+        if (counter == 7)
+        {
+            bar.GetComponent<Image>().color = new Color(0.3f, 1f, 0.5f, 1f);
+            underBar.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
             Attacks.Phase7 = true;
-        if (curHealth < (maxHealth - 7 * (maxHealth / 8)))
+        }
+        if (counter == 8)
+        {
+            bar.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
+            underBar.SetActive(false);
             Attacks.Phase8 = true;
+        }
+            
         if (curHealth <= 0)
         {
             var enemies = GameObject.FindGameObjectsWithTag("Fire");

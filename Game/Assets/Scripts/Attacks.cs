@@ -9,6 +9,13 @@ public class Attacks : MonoBehaviour
     public static bool Phase2 = false, Phase3 = false, Phase4 = false, Phase5 = false, Phase6 = false, Phase7 = false, Phase8 = false;
     void Start()
     {
+        Phase2 = false;
+        Phase3 = false;
+        Phase4 = false;
+        Phase5 = false;
+        Phase6 = false;
+        Phase7 = false;
+        Phase8 = false;
         var fires = GameObject.FindGameObjectsWithTag("Fire");
         var i = 0;
         foreach (GameObject value in fires)
