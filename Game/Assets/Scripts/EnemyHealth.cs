@@ -18,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
     {
         counter = 1;
         curHealth = maxHealth;
-        damage = 1;
+        damage = 2;
         bar.GetComponent<Image>().color = new Color(0.3f, 0.2f, 0.6f, 1f);
         underBar.GetComponent<Image>().color = new Color(0f, 0f, 1f, 1f);
     }
@@ -28,7 +28,7 @@ public class EnemyHealth : MonoBehaviour
         if(curHealth <= 1)
         {
             counter++;
-            if(counter < 8)
+            if(counter <= 8)
             {
                 curHealth = maxHealth;
                 healthBar.SetHealth(curHealth);
@@ -40,43 +40,43 @@ public class EnemyHealth : MonoBehaviour
             underBar.SetActive(false);
             underBar.GetComponent<Image>().color = new Color(0f, 1f, 0f, 1f);
             underBar.SetActive(true);
-            Attacks.Phase2 = true;
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<Attacks>().Phase2 = true;
         }
         if (counter == 3)
         {
             bar.GetComponent<Image>().color = new Color(0f, 1f, 0f, 1f);
             underBar.GetComponent<Image>().color = new Color(1f, 1f, 0f, 1f);
-            Attacks.Phase3 = true;
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<Attacks>().Phase3 = true;
         }
         if (counter == 4)
         {
             bar.GetComponent<Image>().color = new Color(1f, 1f, 0f, 1f);
             underBar.GetComponent<Image>().color = new Color(0f, 1f, 1f, 1f);
-            Attacks.Phase4 = true;
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<Attacks>().Phase4 = true;
         }
         if (counter == 5)
         {
             bar.GetComponent<Image>().color = new Color(0f, 1f, 1f, 1f);
             underBar.GetComponent<Image>().color = new Color(1f, 0f, 1f, 1f);
-            Attacks.Phase5 = true;
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<Attacks>().Phase5 = true;
         }
         if (counter == 6)
         {
             bar.GetComponent<Image>().color = new Color(1f, 0f, 1f, 1f);
             underBar.GetComponent<Image>().color = new Color(0.3f, 1f, 0.5f, 1f);
-            Attacks.Phase6 = true;
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<Attacks>().Phase6 = true;
         }
         if (counter == 7)
         {
             bar.GetComponent<Image>().color = new Color(0.3f, 1f, 0.5f, 1f);
             underBar.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
-            Attacks.Phase7 = true;
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<Attacks>().Phase7 = true;
         }
         if (counter == 8)
         {
             bar.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
             underBar.SetActive(false);
-            Attacks.Phase8 = true;
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<Attacks>().Phase8 = true;
         }
             
         if (curHealth <= 0)

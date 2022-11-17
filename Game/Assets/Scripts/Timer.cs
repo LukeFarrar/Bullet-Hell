@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField]
     private TextMeshProUGUI myText;
     [SerializeField]
     private Slider Health;
@@ -14,25 +13,29 @@ public class Timer : MonoBehaviour
     [SerializeField]
     private Slider EnemyHealth;
 
-    private float seconds = 0;
-    private float minutes = 0;
-    private float ticker = 0;
-
     private float counter = 1;
     // Start is called before the first frame update
+
     void Start()
     {
+        myText = this.GetComponent<TextMeshProUGUI>();
         counter = 1;
+        myText.text = "Phase: " + counter;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(EnemyHealth.value == 1)
-        {
-            counter++;
-        }
-
         myText.text = "Phase: " + counter;
+    }
+
+    public void increasePhase()
+    {
+        counter++;
+    }
+
+    public void setText(TextMeshProUGUI x)
+    {
+        myText = x;
     }
 }

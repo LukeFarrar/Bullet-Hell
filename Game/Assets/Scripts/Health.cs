@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class Health : MonoBehaviour
     public int curHealth = 0;
     public int maxHealth = 100;
     public int damage = 1;
+    public int heal = 10;
 
     public HealthBar healthBar;
 
@@ -44,7 +46,20 @@ public class Health : MonoBehaviour
         {
             DamagePlayer(damage);
         }
+        else if (collision.gameObject.tag == "HealthPowerUp")
+        {
+            if(curHealth + 10 <= 100)
+            {
+                HealPlayer(heal);
+            }           
+        }
         
+    }
+
+    private void HealPlayer(int heal)
+    {
+        curHealth += heal;
+        healthBar.SetHealth(curHealth);
     }
 
     public void DamagePlayer( int damage )

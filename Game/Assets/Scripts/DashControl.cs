@@ -5,6 +5,7 @@ using UnityEngine;
  
 public class DashControl : MonoBehaviour
 {
+    [SerializeField] private GameObject afterImage;
     [SerializeField] private GameObject bounds;
     Rigidbody2D rb; // CHANGE --- No need for public, we're already getting the reference on line 24.
  
@@ -18,6 +19,7 @@ public class DashControl : MonoBehaviour
  
     bool canDash = true;
     bool canMove = true; // CHANGE --- Need to disable movement when dashing.
+    private float counter = 0f;
  
     private void Awake()
     {
@@ -30,10 +32,13 @@ public class DashControl : MonoBehaviour
         //Plyaer Movement Input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
- 
-        if (canDash && Input.GetKeyDown(KeyCode.LeftShift))
 
+ 
+        if (canDash && Input.GetKeyDown(KeyCode.Space))
         {
+            StartCoroutine(Dash(rb.velocity.normalized));
+            
+            /*
             if (Input.GetKeyDown(KeyCode.W) && Input.GetKeyDown(KeyCode.D))
             {
                 StartCoroutine(Dash(new Vector2(1f, 1f)));
@@ -53,6 +58,7 @@ public class DashControl : MonoBehaviour
             {
                 StartCoroutine(Dash(new Vector2(-1f, -1f)));
             }
+            
  
             else if (Input.GetKey(KeyCode.W))
             {
@@ -73,8 +79,19 @@ public class DashControl : MonoBehaviour
             {
                 StartCoroutine(Dash(Vector2.right));
             }
+            */
         }
     }
+
+    private void AfterImage()
+    {
+
+        GameObject instance = Instantiate(afterImage);
+        instance.GetComponent<Renderer>().material.color = new Color(instance.GetComponent<Renderer>().material.color.r, instance.GetComponent<Renderer>().material.color.g, instance.GetComponent<Renderer>().material.color.b, instance.GetComponent<Renderer>().material.color.a + counter);
+        instance.transform.position = this.gameObject.transform.position;
+        counter += 1f;
+    }
+
     void OnCollisionEnter2D(Collision2D col)
     {
         
@@ -92,6 +109,7 @@ public class DashControl : MonoBehaviour
     
     IEnumerator Dash(Vector2 direction)
     {
+        counter = 0;
         canDash = false;
         canMove = false; // CHANGE --- Need to disable movement when dashing.
         currentDashTime = startDashTime; // Reset the dash timer.
@@ -102,7 +120,7 @@ public class DashControl : MonoBehaviour
  
             rb.velocity = direction * dashSpeed; // Dash in the direction that was held down.
                                                  // No need to multiply by Time.DeltaTime here, physics are already consistent across different FPS.
- 
+            AfterImage();
             yield return null; // Returns out of the coroutine this frame so we don't hit an infinite loop.
         }
  

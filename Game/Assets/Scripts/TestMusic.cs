@@ -13,6 +13,8 @@ public class TestMusic : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.clip = GameSettings.getAudio();
+        audioSource.Play();
     }
 
     void Update()

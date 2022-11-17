@@ -10,6 +10,9 @@ TagManager:
   - Fire
   - Music
   - Bound
+  - HealthPowerUp
+  - Text
+  - EnemyHealth
   layers:
   - Default
   - TransparentFX

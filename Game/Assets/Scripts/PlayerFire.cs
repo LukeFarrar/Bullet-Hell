@@ -48,10 +48,7 @@ public class PlayerFire : MonoBehaviour
     {
         if (!stopFire)
         {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Fire();
-            }
+            Fire();
         }    
     }
 
