@@ -17,32 +17,22 @@ public class Timer : MonoBehaviour
     private float seconds = 0;
     private float minutes = 0;
     private float ticker = 0;
+
+    private float counter = 1;
     // Start is called before the first frame update
     void Start()
     {
-        
+        counter = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Health.value <= 0 || EnemyHealth.value <= 0)
+        if(EnemyHealth.value == 1)
         {
-            
+            counter++;
         }
-        else
-        {
-            ticker++;
-            if (ticker % 60 == 0)
-            {
-                seconds++;
-                if (seconds % 60 == 0)
-                {
-                    minutes++;
-                    seconds = 0;
-                }
-            }
-        }
-        myText.text = minutes + ":" + seconds;
+
+        myText.text = "Phase: " + counter;
     }
 }
