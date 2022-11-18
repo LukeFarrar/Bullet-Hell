@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireBullets: MonoBehaviour
 {
+    [SerializeField] private AudioClip shootClip;
     //Patterns
     [SerializeField] private int patternArrays = 1;
     [SerializeField] private int bulletAmount = 10;
@@ -38,9 +39,12 @@ public class FireBullets: MonoBehaviour
     private float shoot = 0;
     private bool stopFire = false;
 
+    private AudioSource audioPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioPlayer = this.gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -77,6 +81,8 @@ public class FireBullets: MonoBehaviour
                         bul.SetActive(true);
                     }
                 }
+                audioPlayer.clip = shootClip;
+                audioPlayer.Play();
             }
 
             //If Default Angle > 360 , set it to 0

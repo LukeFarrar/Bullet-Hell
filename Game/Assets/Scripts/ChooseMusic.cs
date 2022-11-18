@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ChooseMusic : MonoBehaviour
 {
     [SerializeField] private AudioClip audio;
+    [SerializeField] private GameObject tower;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class ChooseMusic : MonoBehaviour
     private void changeMusic()
     {
         GameSettings.setAudio(audio);
+        GameSettings.setTower(tower);
     }
 
     // Update is called once per frame

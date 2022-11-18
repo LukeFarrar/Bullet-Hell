@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
@@ -11,14 +12,22 @@ public class EnemyHealth : MonoBehaviour
     private int counter = 1;
 
     public EnemyHealthBar healthBar;
-    [SerializeField] private GameObject bar;
-    [SerializeField] private GameObject underBar;
+    private GameObject bar;
+    private GameObject underBar;
+    private AudioClip hitClip;
+    private AudioSource audioPlayer;
 
     void Start()
     {
+        audioPlayer = this.gameObject.GetComponent<AudioSource>();
         counter = 1;
         curHealth = maxHealth;
         damage = 2;
+
+        healthBar = GameObject.FindGameObjectWithTag("EnemyBar").GetComponent<EnemyHealthBar>();
+        bar = GameObject.FindGameObjectWithTag("EnemyBarImage");
+        underBar = GameObject.FindGameObjectWithTag("EnemyUnderBar");
+
         bar.GetComponent<Image>().color = new Color(0.3f, 0.2f, 0.6f, 1f);
         underBar.GetComponent<Image>().color = new Color(0f, 0f, 1f, 1f);
     }
@@ -96,6 +105,7 @@ public class EnemyHealth : MonoBehaviour
 
             }
             GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().Stop();
+            SceneManager.LoadScene("Win Screen", LoadSceneMode.Single);
         }
     }
 
@@ -103,6 +113,8 @@ public class EnemyHealth : MonoBehaviour
     {
         if (collision.gameObject.tag == "FriendlyBullet")
         {
+            audioPlayer.clip = hitClip;
+            audioPlayer.Play();
             DamagePlayer(damage);
         }
 

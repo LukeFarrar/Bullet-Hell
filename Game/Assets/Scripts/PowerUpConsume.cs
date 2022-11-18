@@ -29,7 +29,7 @@ public class PowerUpConsume : MonoBehaviour
 	{
 		if(collision.gameObject.tag == "Player")
 		{
-			if(collision.gameObject.GetComponent<Health>().curHealth + 10 <= 100)
+			if(collision.gameObject.GetComponent<Health>().curHealth + 10 <= collision.gameObject.GetComponent<Health>().maxHealth)
             {
 				Destroy(this.gameObject);
 			}

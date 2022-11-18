@@ -7,6 +7,8 @@ public class DashControl : MonoBehaviour
 {
     [SerializeField] private GameObject afterImage;
     [SerializeField] private GameObject bounds;
+    [SerializeField] private AudioClip dashClip;
+    private AudioSource audioPlayer;
     Rigidbody2D rb; // CHANGE --- No need for public, we're already getting the reference on line 24.
  
     public float moveSpeed; //Player Movement Speed
@@ -24,8 +26,12 @@ public class DashControl : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioPlayer = this.gameObject.GetComponent<AudioSource>();
+        afterImage.GetComponent<SpriteRenderer>().sprite = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().sprite;
+        afterImage.transform.localScale = GameObject.FindGameObjectWithTag("Player").transform.localScale;
+        
     }
- 
+
     // Update is called once per frame
     void Update()
     {
@@ -87,6 +93,7 @@ public class DashControl : MonoBehaviour
     {
 
         GameObject instance = Instantiate(afterImage);
+        instance.transform.rotation = GameObject.FindGameObjectWithTag("Player").transform.rotation;
         instance.GetComponent<Renderer>().material.color = new Color(instance.GetComponent<Renderer>().material.color.r, instance.GetComponent<Renderer>().material.color.g, instance.GetComponent<Renderer>().material.color.b, instance.GetComponent<Renderer>().material.color.a + counter);
         instance.transform.position = this.gameObject.transform.position;
         counter += 1f;
@@ -109,6 +116,8 @@ public class DashControl : MonoBehaviour
     
     IEnumerator Dash(Vector2 direction)
     {
+        audioPlayer.clip = dashClip;
+        audioPlayer.Play();
         counter = 0;
         canDash = false;
         canMove = false; // CHANGE --- Need to disable movement when dashing.
@@ -128,5 +137,6 @@ public class DashControl : MonoBehaviour
  
         canDash = true;
         canMove = true; // CHANGE --- Need to enable movement after dashing.
+        audioPlayer.Stop();
     }
 }

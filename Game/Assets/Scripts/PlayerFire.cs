@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,6 +39,7 @@ public class PlayerFire : MonoBehaviour
     private float shoot = 0;
 
     private bool stopFire = false;
+    public GameObject shootFire;
 
     // Start is called before the first frame update
     void Start()
@@ -49,18 +51,30 @@ public class PlayerFire : MonoBehaviour
         if (!stopFire)
         {
             Fire();
+            
         }    
+    }
+
+    private void AnimateFire()
+    {
+        GameObject Instance = Instantiate(shootFire);
+        Instance.transform.position = this.gameObject.transform.position;
+        Instance.transform.rotation = GameObject.FindGameObjectWithTag("Player").transform.rotation;
+        Instance.GetComponent<Rigidbody2D>().velocity = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity;
+        Instance.SetActive(true);
     }
 
     private void Fire()
     {
         //float angleStep = (endAngle - startAngle) / bulletAmount;
+        
 
         float arrayAngle = (spreadWithinArray / bulletAmount); //Calculates spread between arrays
         float bulletAngle = (spreadBetweenArray / bulletAmount); //Calculates the spread between the bullets in the array
 
         if (shoot == 0)
         {//FireRate
+            AnimateFire();
             for (int i = 0; i < patternArrays; i++)
             {
                 for (int j = 0; j < bulletAmount; j++)

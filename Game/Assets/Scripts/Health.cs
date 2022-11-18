@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -12,9 +13,16 @@ public class Health : MonoBehaviour
 
     public HealthBar healthBar;
 
+    [SerializeField] private AudioClip damageClip;
+    [SerializeField] private AudioClip healClip;
+
+    private AudioSource audioPlayer;
+
     void Start()
     {
+        healthBar = GameObject.FindGameObjectWithTag("HeroHealth").GetComponent<HealthBar>();
         curHealth = maxHealth;
+        audioPlayer = this.gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -37,6 +45,7 @@ public class Health : MonoBehaviour
             }
 
             GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().Stop();
+            SceneManager.LoadScene("Lose Screen", LoadSceneMode.Single);
         }
     }
 
@@ -45,12 +54,16 @@ public class Health : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             DamagePlayer(damage);
+            audioPlayer.clip = damageClip;
+            audioPlayer.Play();
         }
         else if (collision.gameObject.tag == "HealthPowerUp")
         {
-            if(curHealth + 10 <= 100)
+            if(curHealth + 10 <= maxHealth)
             {
                 HealPlayer(heal);
+                audioPlayer.clip = healClip;
+                audioPlayer.Play();
             }           
         }
         

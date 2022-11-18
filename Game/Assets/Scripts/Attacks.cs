@@ -52,7 +52,6 @@ public class Attacks : MonoBehaviour
         {
             HealthBar.setPhase(1);
             numHealth += 3;
-            counter = 0;
             heal1 = true;
             for (int a = counter; a < numHealth; a++)
             {
@@ -70,7 +69,6 @@ public class Attacks : MonoBehaviour
             PhaseIncrease2 = true;
             GameObject.FindGameObjectWithTag("Text").GetComponent<Timer>().increasePhase();
             numHealth += 2;
-            counter = 0;
             for (int a = counter; a < numHealth; a++)
             {
                 HealthPowerUp.SpawnHealth();
@@ -88,7 +86,6 @@ public class Attacks : MonoBehaviour
             PhaseIncrease3 = true;
             GameObject.FindGameObjectWithTag("Text").GetComponent<Timer>().increasePhase();
             numHealth += 2;
-            counter = 0;
             for (int a = counter; a < numHealth; a++)
             {
                 HealthPowerUp.SpawnHealth();
@@ -105,7 +102,6 @@ public class Attacks : MonoBehaviour
             PhaseIncrease4 = true;
             GameObject.FindGameObjectWithTag("Text").GetComponent<Timer>().increasePhase();
             numHealth += 2;
-            counter = 0;
             for (int a = counter; a < numHealth; a++)
             {
                 HealthPowerUp.SpawnHealth();
@@ -122,7 +118,6 @@ public class Attacks : MonoBehaviour
             PhaseIncrease5 = true;
             GameObject.FindGameObjectWithTag("Text").GetComponent<Timer>().increasePhase();
             numHealth += 2;
-            counter = 0;
             for (int a = counter; a < numHealth; a++)
             {
                 HealthPowerUp.SpawnHealth();
@@ -139,7 +134,6 @@ public class Attacks : MonoBehaviour
             PhaseIncrease6 = true;
             GameObject.FindGameObjectWithTag("Text").GetComponent<Timer>().increasePhase();
             numHealth += 2;
-            counter = 0;
             for (int a = counter; a < numHealth; a++)
             {
                 HealthPowerUp.SpawnHealth();
@@ -157,7 +151,6 @@ public class Attacks : MonoBehaviour
             PhaseIncrease7 = true;
             GameObject.FindGameObjectWithTag("Text").GetComponent<Timer>().increasePhase();
             numHealth += 2;
-            counter = 0;
             for (int a = counter; a < numHealth; a++)
             {
                 HealthPowerUp.SpawnHealth();
@@ -174,7 +167,6 @@ public class Attacks : MonoBehaviour
             PhaseIncrease8 = true;
             GameObject.FindGameObjectWithTag("Text").GetComponent<Timer>().increasePhase();
             numHealth += 2;
-            counter = 0;
             for (int a = counter; a < numHealth; a++)
             {
                 HealthPowerUp.SpawnHealth();

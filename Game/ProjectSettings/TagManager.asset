@@ -13,6 +13,11 @@ TagManager:
   - HealthPowerUp
   - Text
   - EnemyHealth
+  - HeroHealth
+  - Tower
+  - EnemyBar
+  - EnemyUnderBar
+  - EnemyBarImage
   layers:
   - Default
   - TransparentFX
